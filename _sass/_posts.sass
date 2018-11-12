@@ -1,0 +1,40 @@
+.posts
+  max-width: 800px
+
+  &__post
+    display: block
+    margin-top: 100px
+
+    &-meta
+      display: flex
+      align-items: center
+
+    &-title
+      margin: 0
+      border: 0
+      border-bottom-style: solid
+      border-bottom-width: 1px
+      border-bottom-color: transparent
+      transition: border-bottom-color $theme-transition
+
+    &-date
+      flex: 0 0 auto
+      margin-left: 20px
+      text-align: right
+      opacity: 0
+      line-height: 20px
+      transition: opacity $theme-transition
+
+    &-hype
+      margin-top: 20px
+
+    &:first-child
+      margin: 0
+
+    &:hover
+      .posts__post-title
+        border-bottom-color: $theme-foreground
+
+      .posts__post-date
+        opacity: .25
+
