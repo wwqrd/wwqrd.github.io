@@ -1,11 +1,12 @@
 ---
 title: Visualising TFL travel times
 hype: Using data visualisation to understand commute travel times
-template: post
+layout: project
+date: 2013-03-09
 ---
 
-<div class="iframed" style="width: 500px">
-  <div class="iframed__ratio" style="padding-bottom: 100%;"></div>
+<div class="embed" style="width: 500px">
+  <div class="embed__ratio" style="padding-bottom: 100%;"></div>
   <iframe src="http://www.wwqrd.uk/tfl-visualisation/" scrolling="no" frameborder="0"></iframe>
 </div>
 
@@ -19,7 +20,7 @@ the morning, and that the duration of that journey was typically about
 Built using the [D3.js](http://d3js.org/) (Data Driven Documents)
 library.
 
-<div class="project__info" markdown="1">
+<div class="aside" markdown="1">
 - **Online**: [TFL journey visualisation](http://www.wwqrd.uk/tfl-visualisation)
 - **Source code**: [https://github.com/wwqrd/tfl-visualisation](https://github.com/wwqrd/tfl-visualisation)
 </div>

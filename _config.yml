@@ -2,4 +2,5 @@ permalink: /blog/:categories/:year/:month/:slug
 
 collections:
   projects:
+    output: true
     permalink: /:collection/:slug
