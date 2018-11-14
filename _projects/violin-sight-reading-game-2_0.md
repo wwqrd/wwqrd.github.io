@@ -2,7 +2,8 @@
 title: Violin sight reading tool 2.0
 hype: Learn how to sight read for violin using React and Redux.
 splash: http://www.wwqrd.uk/images/projects/violino-2.png
-template: post
+date: 2016-06-23
+layout: project
 ---
 
 When I built the first version of this tool I was exploring game programming
@@ -22,7 +23,7 @@ this project.
 
 Enjoy learning with it!:
 
-<div class="project__info" markdown="1">
-- **Play Violino 2.0**: [Violino 2.0](http://www.wwqrd.uk/violino2)
+<div class="aside" markdown="1">
+- **Play Violino 2.0**: [Violino 2.0](https://wwqrd.uk/violino2)
 - **Source**: [https://github.com/wwqrd/violino2](https://github.com/wwqrd/violino2)
 </div>

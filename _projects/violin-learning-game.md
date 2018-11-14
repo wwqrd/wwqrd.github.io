@@ -1,7 +1,8 @@
 ---
 title: Violin sight reading game
 hype: This is a tool to help the player learn to read music and the corresponding finger positions for the violin.
-template: post
+layout: project
+date: 2015-04-13
 ---
 
 I wanted to get some practical experience writing a game, and came up with this
@@ -33,7 +34,7 @@ learn which notes the player is having difficulty with.
 
 **Update**: I built a much better version of this game using React! [Find out more here!](/projects/violin-sight-reading-game-2_0.html)
 
-<div class="project__info" markdown="1">
-- **Play online**: [Violino](http://www.wwqrd.uk/violino)
+<div class="aside" markdown="1">
+- **Play online**: [Violino](https://wwqrd.uk/violino)
 - **Source code**: [https://github.com/wwqrd/violino](https://github.com/wwqrd/violino)
 </div>

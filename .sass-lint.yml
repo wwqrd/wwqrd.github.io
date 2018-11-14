@@ -1,0 +1,14 @@
+options:
+  merge-default-rules: false
+# File Options
+files:
+  include: '_sass/**/*.s+(a|c)ss'
+  ignore:
+    - '_sass/vendor/**/*.*'
+# Rule Configuration
+rules:
+  class-name-format:
+    - 1
+    -
+      convention: hyphenatedbem
+  # property-sort-order: 0
