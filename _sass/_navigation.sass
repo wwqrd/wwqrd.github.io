@@ -7,6 +7,8 @@
   justify-content: stretch
 
   &__home
+    positon: relative
+    z-index: 2
     display: inline-flex
     font-size: 30px
     line-height: 30px
@@ -18,6 +20,8 @@
     display: inline-flex
     align-items: center
     justify-content: center
+    positon: relative
+    z-index: 1
 
   &__link
     opacity: 0
@@ -39,8 +43,8 @@
         transform: translateX(#{$i * -50px})
         transition-delay: 0ms, #{$i * 25ms}, #{$i * 25ms}
 
-  &:hover
-    .navigation
-      &__link
-        opacity: 1
-        transform: translateX(0)
+  &:hover,
+  &:focus
+    .navigation__link
+      opacity: 1
+      transform: translateX(0)
