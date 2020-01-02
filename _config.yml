@@ -4,3 +4,6 @@ collections:
   projects:
     output: true
     permalink: /:collection/:slug
+  sketchbook:
+    output: true
+    permalink: /:collection/:slug
