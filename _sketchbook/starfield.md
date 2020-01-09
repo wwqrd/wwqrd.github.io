@@ -7,6 +7,7 @@ layout: sketch
 
 <div class="fullscreen">
   <canvas id="view"></canvas>
+  <div id="gui" style="position: fixed; top: 50px; right: 155px; background: red; width: 20px; height: 20px;"></div>
 </div>
 
 <script type="text/javascript" src="/assets/js/lodash.min.js"></script>
@@ -180,8 +181,10 @@ const setup = () => {
   world.stars = genStars(STARS);
 };
 
-gui = new dat.GUI();
+gui = new dat.GUI({ autoPlace: false, width: 150, hideable: true, closeOnTop: true });
 gui.add(controls, 'engage');
+
+document.getElementById('gui').append(gui.domElement);
 
 const main = () => {
   stop();

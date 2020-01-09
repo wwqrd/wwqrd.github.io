@@ -4,7 +4,8 @@ layout: sketchbook
 ---
 
 <div class="sketches">
-  {% for sketch in site.sketchbook %}
+  {% assign sketches = site.sketchbook | sort: 'date' | reverse %}
+  {% for sketch in sketches %}
     <a class="sketches__sketch" href="{{ sketch.url }}">
       <img class="sketches__sketch-hype" src="{{ sketch.hype }}" />
       <div class="sketches__sketch-meta">

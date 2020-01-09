@@ -35,6 +35,9 @@
     border-bottom-style: solid
     border-bottom-width: 1px
 
+    &-label
+      display: none
+
     &:hover
       border-bottom-color: $theme-foreground
 
@@ -48,3 +51,11 @@
     .navigation__link
       opacity: 1
       transform: translateX(0)
+
+  @media screen and (min-width: 480px)
+    .navigation
+      &__link
+        &-label
+          display: block
+        &-label--mobile
+          display: none
