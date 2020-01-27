@@ -22,6 +22,6 @@ library.
 
 <div class="aside" markdown="1">
 - **Online**: [TFL journey visualisation](http://www.wwqrd.uk/tfl-visualisation)
-- **Source code**: [https://github.com/wwqrd/tfl-visualisation](https://github.com/wwqrd/tfl-visualisation)
+- **Source**: [https://github.com/wwqrd/tfl-visualisation](https://github.com/wwqrd/tfl-visualisation)
 </div>
 
