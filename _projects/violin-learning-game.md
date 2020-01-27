@@ -36,5 +36,5 @@ learn which notes the player is having difficulty with.
 
 <div class="aside" markdown="1">
 - **Play online**: [Violino](https://wwqrd.uk/violino)
-- **Source code**: [https://github.com/wwqrd/violino](https://github.com/wwqrd/violino)
+- **Source**: [https://github.com/wwqrd/violino](https://github.com/wwqrd/violino)
 </div>
