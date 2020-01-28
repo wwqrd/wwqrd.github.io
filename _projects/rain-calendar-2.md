@@ -1,18 +1,19 @@
 ---
-title: Weather Calendar 2
+title: Rain Calendar 2
 hype: Converts the rain forecast into a calendar you can sync
 layout: project
 date: 2020-01-27
 ---
 
-
 <div class="embed">
-  <img src="/assets/images/projects/weathercalendar2.png" style="width: 100%;;"/>
+  <img src="/assets/images/projects/weathercalendar2.png" style="width: 100%;"/>
 </div>
 
 It's been raining a ton here lately, so I though I'd resurrect an old thing I made to help!
 
-This app converts a forecast into a calendar you can subscribe to, with rain shown as events.
+This app converts a forecast into a calendar you can subscribe to, with rain shown as events. If like me you travel a lot on foot/bicycle, you can quickly open your calendar to help decide when to make your move!
+
+I think it's about a 72hr forecast which is good enough for checking what to wear before you head out in the morning.
 
 <div class="embed glitch-embed-wrap" style="height: 420px; width: 100%;">
   <iframe
