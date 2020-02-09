@@ -23,11 +23,12 @@ TODO:
 */
 
 const DEBUG = false;
-const BOIDS = 1000;
+const BOIDS = 300;
 const TIMEOUT = 0;
-const BORDER = 150;
+const BORDER = 100;
 const C = 2;
-const F = 0.99;
+const M = 0.5;
+const F = 0.98;
 
 let view;
 let ctx;
@@ -63,7 +64,7 @@ function applyForces(things) {
   let avoidX = x;
   let avoidY = y;
 
-  for (let i = 0; i <= this.constants.size; i++) {
+  for (let i = 0; i < this.constants.size; i++) {
     if (i !== this.thread.x) {
       const x2 = things[i][1];
       const y2 = things[i][0];
@@ -116,6 +117,12 @@ function applyForces(things) {
     const t = Math.atan2(dy, dx);
     dy = Math.sin(t) * this.constants.C;
     dx = Math.cos(t) * this.constants.C;
+  }
+
+  if (velocity < this.constants.M) {
+    const t = Math.atan2(dy, dx);
+    dy = Math.sin(t) * this.constants.M;
+    dx = Math.cos(t) * this.constants.M;
   }
 
   if (y + dy < -this.constants.BORDER || y + dy > this.constants.height + this.constants.BORDER) {
@@ -217,6 +224,7 @@ const setup = () => {
   ctx = view.getContext('2d');
 
   gpu = new GPU({
+    // mode: 'cpu',
     // mode: 'webgl2',
   });
 
@@ -249,6 +257,7 @@ const setup = () => {
     .setConstants({
       size: world.things.length,
       C,
+      M,
       F,
       BORDER,
       width,
