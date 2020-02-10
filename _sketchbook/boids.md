@@ -26,9 +26,9 @@ const DEBUG = false;
 const BOIDS = 300;
 const TIMEOUT = 0;
 const BORDER = 100;
-const C = 2;
-const M = 0.5;
-const F = 0.98;
+const C = 2.1;
+const M = 1.9;
+const F = 0.99;
 
 let view;
 let ctx;
@@ -49,8 +49,8 @@ function applyForces(things) {
   let y = things[this.thread.x][0];
   let x = things[this.thread.x][1];
 
-  let dy = things[this.thread.x][2]; // + Math.random() * 0.2 - 0.1;
-  let dx = things[this.thread.x][3]; // + Math.random() * 0.2 - 0.1;
+  let dy = things[this.thread.x][2] + Math.random() * 0.2 - 0.1;
+  let dx = things[this.thread.x][3] + Math.random() * 0.2 - 0.1;
   dy *= this.constants.F;
   dx *= this.constants.F;
 
@@ -70,19 +70,19 @@ function applyForces(things) {
       const y2 = things[i][0];
       const d = Math.pow(x2 - x, 2) + Math.pow(y2 - y, 2);
 
-      if (d < 20000) {
+      if (d < 5000) {
         countAlign += 1;
         alignY += things[i][2];
         alignX += things[i][3];
       }
 
-      if (d < 4000) {
+      if (d < 1000 && d > 4000) {
         countCenter += 1;
         centerY += y2;
         centerX += x2;
       }
 
-      if (d < 200) {
+      if (d < 2000) {
         countAvoid += 1;
         avoidY += y2;
         avoidX += x2;
@@ -91,25 +91,25 @@ function applyForces(things) {
   }
 
   if (countAlign > 0) {
-    dy += (alignY / countAlign) * 0.01;
-    dx += (alignX / countAlign) * 0.01;
+    dy += (alignY / countAlign) * 0.03;
+    dx += (alignX / countAlign) * 0.03;
   }
 
   if (countCenter > 0) {
-    dy += (y - (centerY / countCenter)) * -0.002;
-    dx += (x - (centerX / countCenter)) * -0.002;
+    dy += (y - (centerY / countCenter)) * 0.004;
+    dx += (x - (centerX / countCenter)) * 0.004;
   }
 
   if (countAvoid > 0) {
-    dy += (y - (avoidY / countAvoid)) * 0.008;
-    dx += (x - (avoidX / countAvoid)) * 0.008;
+    dy += (y - (avoidY / countAvoid)) * 0.004;
+    dx += (x - (avoidX / countAvoid)) * 0.004;
   }
 
   const hW = this.constants.width / 2;
   const hH = this.constants.height / 2;
 
-  dy += (hH - y)/hH * 0.001;
-  dx += (hW - x)/hW * 0.001;
+  dy += (hH - y)/hH * 0.002;
+  dx += (hW - x)/hW * 0.002;
 
   const velocity = Math.pow(dy, 2) + Math.pow(dx, 2);
 
