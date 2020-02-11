@@ -3,11 +3,20 @@ title: Boids
 hype: /assets/images/sketchbook/boids@2x.png
 date: 2019-10-15
 layout: sketch
+# glitch: ballistic-pink
 ---
 
 <div class="fullscreen">
   <canvas id="view"></canvas>
 </div>
+
+{% if page.glitch %}
+<div class="sketch__share">
+  <a class="sketch__share--glitch" href="https://glitch.com/edit/?utm_content=project_{{ page.glitch }}&utm_source=remix_this&utm_medium=button&utm_campaign=glitchButton#!/remix/{{ page.glitch }}">
+    <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix%402x.png?1513093958726" alt="remix this" height="33">
+  </a>
+<div>
+{% endif %}
 
 <script type="text/javascript" src="/assets/js/lodash.min.js"></script>
 <script type="text/javascript" src="/assets/js/ramda.min.js"></script>
