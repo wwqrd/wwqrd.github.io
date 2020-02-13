@@ -3,7 +3,7 @@ title: Boids
 hype: /assets/images/sketchbook/boids@2x.png
 date: 2019-10-15
 layout: sketch
-# glitch: ballistic-pink
+glitch: paper-push-6zd203q7f5
 ---
 
 <div class="fullscreen">
