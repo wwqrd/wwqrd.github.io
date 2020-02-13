@@ -10,9 +10,11 @@ layout: index
         <h1 class="posts__post-title">{{ post.title }}</h1>
         <div class="posts__post-date">{{ post.date | date: "%a, %B %d" }}</div>
       </div>
-      <div class="posts__post-hype">
-        {{ post.hype }}
-      </div>
+      {% if post.hype %}
+        <div class="posts__post-hype">
+          {{ post.hype }}
+        </div>
+      {% endif %}
     </a>
   {% endfor %}
 </div>
