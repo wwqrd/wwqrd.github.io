@@ -1,6 +1,6 @@
 ---
 title: Rain Calendar
-hype: Converts the rain forecast into a calendar you can sync
+hype: Convert the rain forecast into a calendar you can sync
 layout: project
 date: 2020-01-27
 ---
