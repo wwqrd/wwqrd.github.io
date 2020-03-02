@@ -1,6 +1,6 @@
 ---
 title: sketchbook
-layout: sketchbook
+variant: wide
 ---
 {% assign image_media_types = ".png .jpg" | split: " " %}
 
