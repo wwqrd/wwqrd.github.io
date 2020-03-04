@@ -1,6 +1,7 @@
 ---
 title: Rotary Cellphone
 tickertape: true
+hype: A home made cellphone with rotary dial
 ---
 
 Absolutely love this build of a rotary cellphone by Justine Haupt:
