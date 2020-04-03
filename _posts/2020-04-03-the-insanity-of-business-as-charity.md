@@ -1,6 +1,6 @@
 ---
 title: The insanity of business as charity
-hype: Rant about COVID-19
+hype: Rant about the COVID-19 economic stimulus
 ---
 
 Business exists for a sole purpose - to provide goods and services. As a reward for doing that they
@@ -14,7 +14,7 @@ Given that we may be in lockdown for some time does it really make sense to inte
 "invisible hand of the market"? Maybe some business needs to fail so that labour can go elsewhere
 and the economy can adapt. Maybe there should be some protected industries, but not all of them.
 
-So buisness is safe for now, but the furloughed are still under seige, they may not have jobs to
+Business is safe for now, but the furloughed are still under seige. They know that they may not have jobs to
 go back to despite the intervention -- so lets not. Let's instead improve welfare, support the
 population directly through Universal Basic Income. Allow people to innovate and move on with
 their lives.
