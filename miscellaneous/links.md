@@ -2,7 +2,7 @@
 title: Links
 ---
 
-<p>A list of cool website from around the web!</p>
+<p>A list of cool sites from around the web!</p>
 
 <ul>
   <li>
