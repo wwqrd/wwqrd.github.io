@@ -6,7 +6,7 @@ title: Links
 
 <ul>
   <li>
-    <a href="https://microship.com/">https://microship.com/</a> - Steven K. Roberts, living the dream.
+    <a href="https://microship.com/">https://microship.com/</a> - Steven K. Roberts, Nomadic Research Labs.
   </li>
   <li>
     <a href="https://mitxela.com/">https://mitxela.com/</a> - Tim Alex Jacobs inspiring
