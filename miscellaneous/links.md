@@ -9,6 +9,9 @@ title: Links
     <a href="https://microship.com/">https://microship.com/</a> - Steven K. Roberts, Nomadic Research Labs.
   </li>
   <li>
+    <a href="https://notebook.drmaciver.com/">https://notebook.drmaciver.com/</a> - David R. MacIver's thoughtful blog.
+  </li>
+  <li>
     <a href="https://mitxela.com/">https://mitxela.com/</a> - Tim Alex Jacobs inspiring
     <a href="https://mitxela.com/rants">blog</a> and
     <a href="https://mitxela.com/projects">projects</a> website, the projects particularly are really something!
