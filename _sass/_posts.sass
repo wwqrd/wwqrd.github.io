@@ -1,54 +1,17 @@
 .posts
   &__post
+    margin: 2.75rem 0 1.05rem
+    text-decoration: none
     display: block
-    margin-top: 40px
-
-    &-meta
-      flex-direction: column
-      align-items: left
-
-    &-title
-      display: inline-block
-      margin: 0
-      border: 0
-      border-bottom-style: solid
-      border-bottom-width: 1px
-      border-bottom-color: transparent
-      transition: border-bottom-color $theme-transition
-
-    &-date
-      display: block
-      line-height: 20px
-      opacity: .35
-
-    &-hype
-      margin-top: 20px
+    color: $theme-text
 
     &:first-child
       margin: 0
 
-    &:hover
-      .posts__post-title
-        border-bottom-color: $theme-foreground
+    &-date
+      font-size: 0.64rem
+      opacity: 0.64
+      margin-bottom: 0.64rem
 
-  @media screen and (min-width: 640px)
-    &__post
-      margin-top: 80px
-
-      &-meta
-        display: flex
-        flex-direction: row
-        align-items: center
-
-      &-date
-        flex: 0 0 auto
-        margin-left: 20px
-        text-align: right
-        opacity: 0
-        line-height: 20px
-        transition: opacity $theme-transition
-
-      &:hover
-        .posts__post-date
-          opacity: .35
-
+    &-title
+      margin: 0

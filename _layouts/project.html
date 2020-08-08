@@ -7,17 +7,17 @@
 <body>
   {% include header.html %}
 
-  <div class="breadcrumbs">
-    <a href="/sketchbook">← back to sketchbook</a>
+  <div class="layout">
+
+    {% include post-heading.html %}
+
+    <div class="post__content">
+      {{ content }}
+    </div>
+
+    <div class="post__meta"></div>
+
   </div>
-
-  {% include post-heading.html %}
-
-  <div class="post__content">
-    {{ content }}
-  </div>
-
-  <div class="post__meta"></div>
 
   {% include tail.html %}
 </body>

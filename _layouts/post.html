@@ -7,18 +7,16 @@
 <body>
   {% include header.html %}
 
-  <div class="breadcrumbs">
-    <a href="/blog">← back to posts</a>
-  </div>
+  <div class="layout">
 
-  {% include post-heading.html %}
+    {% include post-heading.html %}
 
-  <div class="post__content content">
-    {{ content }}
-  </div>
+    <div class="post__content content">
+      {{ content }}
+    </div>
 
-  <div class="post__meta">
-    <div class="post__meta-date">{{ page.date | date: "%a, %B %d, %Y" }}</div>
+    <div class="post__end"></div>
+
   </div>
 
   {% include tail.html %}

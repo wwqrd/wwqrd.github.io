@@ -19,7 +19,7 @@ variant: wide
       </div>
 
       <div class="sketches__sketch-meta">
-        <h1 class="sketches__sketch-title">{{ sketch.title }}</h1>
+        <h3 class="sketches__sketch-title">{{ sketch.title }}</h3>
       </div>
     </a>
   {% endfor %}

@@ -1,17 +1,21 @@
 body
   background-color: $theme-background
-  color: $theme-foreground
-  padding: 80px 20px 20px
+  color: $theme-text
+  padding: #{4 + 2.75}rem 1rem
 
-.content
-  a
-    color: $theme-hyperlink
-    text-decoration: underline
+.content,
+.layout
+  max-width: 720px
+  margin: 0 auto
+
+a
+  color: $theme-action
+  text-decoration: underline
 
 @media screen and (min-width: 480px)
   body
-    padding: 80px 40px 40px
+    padding: #{4 + 2.75}rem 1rem
 
 @media screen and (min-width: 640px)
   body
-    padding: 120px
+    padding: #{4 + 2.75}rem 1rem

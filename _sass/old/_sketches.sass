@@ -1,10 +1,9 @@
 .sketches
+  margin-top: -40px
 
   &__sketch
-    margin: 1rem 0 0 0
+    margin: 40px 0 0 0
     display: block
-    text-decoration: none
-    color: $theme-text
 
     &-hype
       width: 100%
@@ -22,7 +21,7 @@
         height: 100%
 
       div
-        background: $theme-text
+        background: $theme-foreground
         font-size: 2rem
         line-height: 3rem
         color: $theme-background
@@ -35,13 +34,22 @@
 
     &-title
       display: inline-block
-      margin: 0.64rem 0 0
+      margin: 20px 0
       border: 0
+      border-bottom-style: solid
+      border-bottom-width: 1px
+      border-bottom-color: transparent
+      transition: border-bottom-color $theme-transition
+
+    &:hover
+      .sketches__sketch-title
+        border-bottom-color: transparentize($theme-foreground, 0.5)
 
   @media screen and (min-width: 640px)
+    margin-top: -80px
     display: flex
     flex-wrap: wrap
 
     &__sketch
-      margin: 0 1rem 2.75rem 0
-      width: 14rem
+      margin: 80px 80px 0 0
+      width: 300px

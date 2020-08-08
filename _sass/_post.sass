@@ -1,31 +1,31 @@
 .post
-  &__heading
-    margin-bottom: 50px
-
-  &__hype
-    font-size: 16px
-    font-style: italic
-    opacity: 0.65
-    margin-top: 16px
-
-  blockquote
-    font-style: italic
-    opacity: 0.65
-    border-left: 2px solid $theme-foreground
-    padding: 0 18px
-    margin: 24px 0
 
   &__content
-    margin: 24px 0
+    margin-top: 2.75rem
 
-  &__meta
-    margin: 50px 0
-    opacity: 0.35
+  &__title,
+  &__hype,
+  &__date
+    margin: 0 0 1.05rem
+
+  &__date
+    font-size: 0.64rem
+    opacity: 0.64
+
+  // blockquote
+  //   font-style: italic
+  //   opacity: 0.65
+  //   border-left: 2px solid $theme-foreground
+  //   padding: 0 18px
+  //   margin: 24px 0
+
+  &__end
+    margin-top: 2.75rem
 
     &::before
       content: ''
       display: block
       width: 50px
-      border-top: 2px solid $theme-foreground
+      border-top: 2px solid $theme-text
       height: 0
-      margin-bottom: 10px
+      opacity: 0.64
