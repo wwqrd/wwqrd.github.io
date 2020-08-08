@@ -7,7 +7,7 @@ layout: sketch
 
 <div class="fullscreen">
   <canvas id="view"></canvas>
-  <div id="gui" style="position: fixed; top: 50px; right: 155px; background: red; width: 20px; height: 20px;"></div>
+  <div id="gui" style="position: fixed; bottom: 1rem; left: 1rem;"></div>
 </div>
 
 <script type="text/javascript" src="/assets/js/lodash.min.js"></script>
