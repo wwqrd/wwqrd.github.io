@@ -1,0 +1,14 @@
+{%- extends "base.html" %}
+
+{%- block variant %}default{%- endblock variant %}
+
+{%- block content %}
+<div class="content">
+    {% if page.title %}
+      <h1>{{ page.title }}</h1>
+    {% endif %}
+
+    {{ page.content | safe}}
+  </div>
+{%- endblock content %}
+

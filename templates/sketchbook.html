@@ -1,0 +1,28 @@
+{%- extends "base.html" %}
+
+{%- block variant %}default wide{%- endblock variant %}
+
+{%- block content %}
+{% set image_media_types = ["png", "jpg"] %}
+<div class="layout">
+  <div class="sketches">
+    {% for sketch in section.pages %}
+      
+      {% set hype_media_type = sketch.extra.hype | split(pat=".") | last %}
+      <a class="sketches__sketch" href="{{ sketch.permalink  }}">
+        <div class="sketches__sketch-hype">
+          {% if image_media_types is containing(hype_media_type) %}
+            <img src="{{ sketch.extra.hype }}" />
+          {% else %}
+            <div>{{ sketch.extra.hype }}</div>
+          {% endif %}
+        </div>
+
+        <div class="sketches__sketch-meta">
+          <h3 class="sketches__sketch-title">{{ sketch.title }}</h3>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{%- endblock content %}

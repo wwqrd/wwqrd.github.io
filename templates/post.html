@@ -1,0 +1,18 @@
+{%- extends "base.html" %}
+
+{%- block variant %}default post{%- endblock variant %}
+
+{%- block content %}
+<div class="layout">
+
+  {% include "partials/post-heading.html" %}
+
+  <div class="post__content content">
+    {{ page.content | safe }}
+  </div>
+
+  <div class="post__end"></div>
+
+</div>
+{%- endblock content %}
+

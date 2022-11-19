@@ -1,0 +1,15 @@
+{%- extends "base.html" %}
+
+{%- block variant %}sketch full{%- endblock variant %}
+
+{%- block content %}
+    {{ page.content | safe }}
+
+    {%- if page.extra.glitch %}
+    <div class="sketch__share">
+    <a class="sketch__share--glitch" href="https://glitch.com/edit/?utm_content=project_{{ page.extra.glitch }}&utm_source=remix_this&utm_medium=button&utm_campaign=glitchButton#!/remix/{{ page.extra.glitch }}">
+        <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix%402x.png?1513093958726" alt="remix this" height="33">
+    </a>
+    <div>
+    {%- endif %}
+{%- endblock content %}
