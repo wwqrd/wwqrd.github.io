@@ -5,7 +5,7 @@ date: 2021-01-12
 template: "post.html"
 ---
 
-[Letting Go of Nostalgia Urbanism](https://www.granolashotgun.com/granolashotguncom/2mvygaw3y67fx5bqrvno2lp452zifc)
+[Letting Go of Nostalgia Urbanism](https://archive.ph/Ffuj2) (originally at: https://www.granolashotgun.com/granolashotguncom/2mvygaw3y67fx5bqrvno2lp452zifc)
 
 This article really spoke to me at the end of last year.
 
