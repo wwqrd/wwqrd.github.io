@@ -32,7 +32,7 @@
     z-index: 1
 
   &__link
-    // text-decoration: none
+    @include link(3px, 4px)
     opacity: 0
     flex: 0 0 auto
     margin-right: 1rem
@@ -41,26 +41,11 @@
     transition-duration: 500ms
     line-height: 2em
     position: relative
-
-    &::after
-      content: ''
-      position: absolute
-      bottom: 50%
-      transform: translateY(calc(#{0.5 * 1}rem + 1px))
-      left: 0
-      height: 4px
-      // background-color: transparentize($color-blue-jeans, 0.67)
-      width: 100%
-      transition-property: background-color
-      transition-duration: 500ms
-      z-index: -1
+    &:after
+      background-color: transparent;
 
     &-label
       display: none
-
-    &:hover
-      &::after
-        background-color: transparentize($color-fiery-rose, 0)
 
     @for $i from 1 through 10
       &:nth-child(#{$i})

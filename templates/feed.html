@@ -1,0 +1,15 @@
+{%- extends "base.html" %}
+
+{%- block content %}
+  <div class="layout">
+    <div class="posts">
+        {% for post in section.pages %}
+          <a class="posts__post" href="{{ post.extra.link }}">
+            <h3 class="posts__post-title">{{ post.title }}</h3>
+            {{ post.content | safe }}
+            <!-- <p>{{ post | json_encode }}</p> -->
+          </a>
+        {% endfor %}
+      </div>
+  </div>
+{%- endblock content %}
