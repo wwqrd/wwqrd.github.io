@@ -1,25 +1,32 @@
-<div class="navigation" id="navigation">
-  <a class="navigation__home" href="/" id="home">⌘</a>
-  <div class="navigation__links">
-    <a class="navigation__link" href="/">
-      <div class="navigation__link-label">home</div>
-      <div class="navigation__link-label--mobile">hme</div>
-    </a>
-    <a class="navigation__link" href="/blog">
-      <div class="navigation__link-label">blog</div>
-      <div class="navigation__link-label--mobile">blog</div>
-    </a>
-    <a class="navigation__link" href="/sketchbook">
-      <div class="navigation__link-label">sketchbook</div>
-      <div class="navigation__link-label--mobile">sktchbk</div>
-    </a>
-    <a class="navigation__link" href="/feed">
-      <div class="navigation__link-label">feed</div>
-      <div class="navigation__link-label--mobile">fd</div>
-    </a>
-    <a class="navigation__link" href="/other">
-      <div class="navigation__link-label">other</div>
-      <div class="navigation__link-label--mobile">othr</div>
-    </a>
+{%- set links = ["/ home 🏕️", "/blog blog 📖", "/sketchbook sketchbook 🌱",
+"/feed feed 📟", "/other other 🔮"] %}
+
+<div class="navigation">
+  <input type="checkbox" id="navigation-controller" />
+
+  <div class="navigation-container">
+    <label for="navigation-controller" class="navigation-home">⌘</label>
+
+    <div class="navigation-menu">
+      {% for link in links %} {%- set link_parts = link | split(pat=" ") %}
+      <a class="navigation-menu__link" href="{{link_parts[0]}}"
+        >{{link_parts[2]}} <span>{{link_parts[1]}}</span></a
+      >
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="navigation-menu-mobile">
+    {% for link in links %} {%- set link_parts = link | split(pat=" ") %}
+    <a class="navigation-menu-mobile__link" href="{{link_parts[0]}}"
+      >{{link_parts[2]}} <span>{{link_parts[1]}}</span></a
+    >
+    {% endfor %}
+
+    <label
+      for="navigation-controller"
+      class="navigation-menu-mobile__link navigation-menu-mobile__close"
+      >close menu</label
+    >
   </div>
 </div>

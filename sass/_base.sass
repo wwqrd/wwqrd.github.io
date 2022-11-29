@@ -1,7 +1,8 @@
 body
   background-color: $theme-background
   color: $theme-text
-  padding: #{4 + 2.75}rem 1rem
+  margin: 0
+  padding: 0
 
 @mixin link($size: 2px, $offset: 0px)
   text-decoration: none
@@ -16,13 +17,13 @@ body
     width: 100%
     height: $size
     z-index: -1
-    background-color: $theme-highlight;
+    background-color: $theme-highlight
     transition: background-color $theme-transition-slow ease-in-out
 
   &:hover
     &::after
-      background-color: $theme-hover;
-      transition-duration: $theme-transition-fast;
+      background-color: $theme-hover
+      transition-duration: $theme-transition-fast
 
 a
   text-decoration: none
@@ -58,15 +59,10 @@ blockquote
     height: 100%
     width: $size
 
+.layout
+  padding: 6.75rem 1rem
+
 .content,
 .layout
   max-width: 720px
   margin: 0 auto
-
-@media screen and (min-width: 480px)
-  body
-    padding: #{4 + 2.75}rem 1rem
-
-@media screen and (min-width: 640px)
-  body
-    padding: #{4 + 2.75}rem 1rem

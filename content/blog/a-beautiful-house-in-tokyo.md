@@ -1,7 +1,5 @@
 ---
-title: This house
-# tickertape: true
-hype: A beautiful house in tokyo
+title: A beautiful house in tokyo
 date: 2020-03-04
 template: "post.html"
 ---
@@ -21,5 +19,3 @@ And this nook!:
 <div class="embed">
   <img src="/assets/images/blog/this-house.jpg" style="width: 60%;"/>
 </div>
-
-

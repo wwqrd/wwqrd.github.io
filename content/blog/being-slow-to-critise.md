@@ -1,5 +1,5 @@
 ---
-title: Being Slow to Criticise
+title: Being slow to criticise
 hype: A sentiment I tend to agree with
 date: 2020-05-11
 template: "post.html"
@@ -13,4 +13,4 @@ So before jumping in to criticise why not start here?:
 
 [Colin Wright on Being Slow to Criticise](https://www.solipsys.co.uk/new/BeingSlowToCriticise.html)
 
-Yet maybe you *do* have a new perspective and a better idea - that's great! Even so, does it necessitate that the last one was entirely stupid?
+Yet maybe you _do_ have a new perspective and a better idea - that's great! Even so, does it necessitate that the last one was entirely stupid?

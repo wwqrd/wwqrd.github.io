@@ -1,20 +1,17 @@
 .navigation
-  position: absolute
-  top: 2rem
-  left: 50%
-  transform: translateX(-50%)
-  max-width: 720px
-  width: calc(100% - 2rem)
-  display: flex
-  align-items: stretch
-  justify-content: stretch
-  z-index: 2
+  .navigation-container
+    position: absolute
+    top: 2rem
+    left: 50%
+    transform: translateX(-50%)
+    max-width: 720px
+    width: calc(100% - 2rem)
+    display: flex
+    align-items: stretch
+    justify-content: stretch
+    z-index: 2
 
-  a
-    color: inherit
-    text-decoration: none
-
-  &__home
+  .navigation-home
     positon: relative
     z-index: 2
     display: inline-flex
@@ -22,46 +19,90 @@
     line-height: 2rem
     align-items: center
     justify-content: center
-    margin-right: 1rem
+    margin-right: 1.5rem
 
-  &__links
-    display: inline-flex
+  .navigation-menu
+    display: none
     align-items: center
     justify-content: center
     positon: relative
     z-index: 1
 
-  &__link
-    @include link(3px, 4px)
-    opacity: 0
-    flex: 0 0 auto
-    margin-right: 1rem
-    transform: translateX(-1.5rem)
-    transition-property: opacity, transform
+    &__link
+      opacity: 0
+      flex: 0 0 auto
+      margin-right: 1.5rem
+      transform: translateX(-1.5rem)
+      transition-property: opacity, transform
+      transition-duration: 500ms
+      line-height: 2em
+      position: relative
+
+      @for $i from 1 through 10
+        &:nth-child(#{$i})
+          transform: translateX(#{$i * -3rem})
+          transition-delay: 0ms, #{$i * 25ms}, #{$i * 25ms}
+
+      span
+        @include link(3px, 4px)
+        line-height: 2em
+        display: inline-block
+        margin-left: 0.25rem
+
+        &:after
+          background-color: transparent
+
+  .navigation-menu-mobile
+    display: none
+    position: absolute
+    background-color: $theme-background
+    top: 0
+    left: 0
+    padding: 6.25rem 1rem 2rem 1rem
+    width: calc(100vw - 2rem)
+    height: calc(100vh - 8.25rem)
+    flex-direction: column
+    align-items: flex-start
+    z-index: 2
+    transition-property: opacity
     transition-duration: 500ms
-    line-height: 2em
-    position: relative
-    &:after
-      background-color: transparent;
 
-    &-label
-      display: none
+    &__link
+      display: inline-block
+      font-size: 1.728rem
+      line-height: 1.728rem
+      margin-bottom: 1.728rem
+    
+    a.navigation-menu-mobile__link span
+      margin-left: 0.5rem
+      @include link(4px, -3px)
 
-    @for $i from 1 through 10
-      &:nth-child(#{$i})
-        transform: translateX(#{$i * -3rem})
-        transition-delay: 0ms, #{$i * 25ms}, #{$i * 25ms}
+    &__close
+      @include link(2px, -1px)
+      position: relative
+      opacity: .5
+      font-size: 1.5rem
+      line-height: 2rem
 
-  &:hover,
-  &:focus
-    .navigation__link
+      &::after
+        background-color: $theme-text
+
+#navigation-controller
+  display: none
+
+#navigation-controller:checked ~ .navigation-menu-mobile
+  display: flex
+
+#navigation-controller:checked ~ .navigation-container
+  .navigation-menu
+    &__link
       opacity: 1
       transform: translateX(0)
 
-  @media screen and (min-width: 480px)
-    .navigation
-      &__link
-        &-label
-          display: block
-        &-label--mobile
-          display: none
+@media screen and (min-width: 480px)
+  .navigation
+    .navigation-menu-mobile
+      display: none !important
+
+    .navigation-menu
+      display: inline-flex
