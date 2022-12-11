@@ -1,11 +1,13 @@
 .navigation
   .navigation-container
     position: absolute
+    box-sizing: border-box;
     top: 2rem
     left: 50%
     transform: translateX(-50%)
     max-width: 720px
-    width: calc(100% - 2rem)
+    width: 100lvw
+    padding: 0 1rem
     display: flex
     align-items: stretch
     justify-content: stretch
@@ -53,18 +55,21 @@
           background-color: transparent
 
   .navigation-menu-mobile
-    display: none
+    display: flex
     position: absolute
-    background-color: $theme-background
+    opacity: 1
+    background-color: $theme-menu-background
     top: 0
     left: 0
     padding: 6.25rem 1rem 2rem 1rem
-    width: calc(100vw - 2rem)
-    height: calc(100vh - 8.25rem)
+    width: 100lvw
+    height: 100lvh
+    transform: translateX(-100lvw)
+    box-sizing: border-box;
     flex-direction: column
     align-items: flex-start
     z-index: 2
-    transition-property: opacity
+    transition-property: transform, opacity
     transition-duration: 500ms
 
     &__link
@@ -76,22 +81,25 @@
     a.navigation-menu-mobile__link span
       margin-left: 0.5rem
       @include link(4px, -3px)
+      color: $theme-menu-text
 
     &__close
-      @include link(2px, -1px)
+      @include link(4px, -3px)
+      color: $theme-menu-text
       position: relative
-      opacity: .5
       font-size: 1.5rem
       line-height: 2rem
 
       &::after
-        background-color: $theme-text
+        background-color: $theme-menu-text
 
 #navigation-controller
   display: none
 
 #navigation-controller:checked ~ .navigation-menu-mobile
   display: flex
+  transform: translateX(0lvw)
+  opacity: 1
 
 #navigation-controller:checked ~ .navigation-container
   .navigation-menu

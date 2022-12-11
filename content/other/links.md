@@ -1,6 +1,6 @@
----
-title: Links
----
++++
+title="Links"
++++
 
 <p>A list of cool sites from around the web!</p>
 

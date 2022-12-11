@@ -1,14 +1,10 @@
-{%- extends "base.html" %}
-
-{%- block variant %}default{%- endblock variant %}
-
+{%- extends "base.html" %} {%- block variant %}default{%- endblock variant %}
 {%- block content %}
-<div class="content">
+<div class="layout">
+  <div class="content">
     {% if page.title %}
-      <h1>{{ page.title }}</h1>
-    {% endif %}
-
-    {{ page.content | safe}}
+    <h2>{{ page.title }}</h2>
+    {% endif %} {{ page.content | safe}}
   </div>
+</div>
 {%- endblock content %}
-
