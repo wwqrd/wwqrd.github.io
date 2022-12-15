@@ -7,23 +7,12 @@ body
 @mixin link($size: 2px, $offset: 0px)
   text-decoration: none
   position: relative
-
-  &::after
-    content: ''
-    display: block
-    position: absolute
-    bottom: $offset
-    left: 0
-    width: 100%
-    height: $size
-    z-index: -1
-    background-color: $theme-highlight
-    transition: background-color $theme-transition-slow ease-in-out
+  border-bottom: solid $size $theme-highlight
+  transition: border-bottom $theme-transition-slow ease-in-out
 
   &:hover
-    &::after
-      background-color: $theme-hover
-      transition-duration: $theme-transition-fast
+    border-color: $theme-hover
+    transition-duration: $theme-transition-fast
 
 a
   text-decoration: none

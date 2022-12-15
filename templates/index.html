@@ -3,7 +3,7 @@
   <div class="posts">
     {% for post in section.pages %}
     <a class="posts__post" href="{{ post.permalink }}">
-      <h3 class="posts__post-title">{{ post.title }}</h3>
+      <h3 class="posts__post-title"><span>{{ post.title }}</span></h3>
     </a>
     {% endfor %}
   </div>

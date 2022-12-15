@@ -5,7 +5,7 @@
     top: 2rem
     left: 50%
     transform: translateX(-50%)
-    max-width: 720px
+    max-width: calc(720px + 2rem)
     width: 100lvw
     padding: 0 1rem
     display: flex
@@ -22,6 +22,7 @@
     align-items: center
     justify-content: center
     margin-right: 1.5rem
+    cursor: pointer
 
   .navigation-menu
     display: none
@@ -31,25 +32,27 @@
     z-index: 1
 
     &__link
+      --animation-speed: 300ms // 500ms
       opacity: 0
       flex: 0 0 auto
       margin-right: 1.5rem
       transform: translateX(-1.5rem)
       transition-property: opacity, transform
-      transition-duration: 500ms
-      line-height: 2em
+      transition-duration: var(--animation-speed)
+      line-height: 1.5em
       position: relative
 
       @for $i from 1 through 10
         &:nth-child(#{$i})
           transform: translateX(#{$i * -3rem})
-          transition-delay: 0ms, #{$i * 25ms}, #{$i * 25ms}
+          transition-delay: 0ms, calc(var(--animation-speed) * #{$i / 20}), calc(var(--animation-speed) * #{$i / 20 })
 
       span
         @include link(3px, 4px)
-        line-height: 2em
+        line-height: 1.5em
         display: inline-block
         margin-left: 0.25rem
+        border-color: transparent
 
         &:after
           background-color: transparent
@@ -107,7 +110,7 @@
       opacity: 1
       transform: translateX(0)
 
-@media screen and (min-width: 480px)
+@media screen and (min-width: 600px)
   .navigation
     .navigation-menu-mobile
       display: none !important
