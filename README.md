@@ -1,3 +1,14 @@
 # wwqrd.github.io
 
-Build using zola
+Homepage
+
+## Getting started
+
+Built using [zola](https://www.getzola.org/)
+
+Commands
+
+```sh
+$ zola serve
+$ zola build
+```

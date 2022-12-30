@@ -1,9 +1,9 @@
 +++
-title = "Visualising TFL travel times"
+title = "TFL data visualisation"
 date = "2013-03-09"
 template = "project.html"
 [extra]
-hype = "Using data visualisation to understand commute travel times"
+hype = "Commute travel times data visualisation"
 +++
 
 <div class="embed" style="width: 500px">
@@ -25,4 +25,3 @@ library.
 - **Online**: [TFL journey visualisation](http://www.wwqrd.uk/tfl-visualisation)
 - **Source**: [https://github.com/wwqrd/tfl-visualisation](https://github.com/wwqrd/tfl-visualisation)
 </div>
-
