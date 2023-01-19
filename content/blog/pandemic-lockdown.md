@@ -1,10 +1,10 @@
----
-title: Pandemic lockdown
-hype: Thoughts at the beginning of lockdown
-# tickertape: true
-date: 2020-03-21
-template: "post.html"
----
++++
+title = "Pandemic lockdown"
+date = "2020-03-21"
+template = "post.html"
+[extra]
+hype = "Thoughts at the beginning of lockdown"
++++
 
 We are in the midst of the Coronavirus pandemic (2020) at the moment. I don't have anything
 to add that hasn't already been said, but I wanted to jot down some of my present thoughts on it.

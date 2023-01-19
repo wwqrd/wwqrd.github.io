@@ -4,17 +4,53 @@
 <title>{{ page.title }}</title>
 {% else %}
 <title>wwqrd</title>
+{% endif %} {% if section.extra.hype %}
+<meta name="description" content="{{ section.extra.hype }}" />
+{% elif page.extra.hype %}
+<meta name="description" content="{{ page.extra.hype }}" />
+{% else %}
+<meta name="description" content="A personal web page on the internet." />
 {% endif %}
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+<meta content="width=device-width" name="viewport" />
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-<link rel="stylesheet" href="/main.css">
-<link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57" />
-<link href="/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114" />
-<link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72" />
-<link href="/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144" />
-<link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon-precomposed" sizes="120x120" />
-<link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon-precomposed" sizes="152x152" />
+<link rel="stylesheet" href="/main.css" />
+<link
+  href="/apple-touch-icon-57x57.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="57x57"
+/>
+<link
+  href="/apple-touch-icon-114x114.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="114x114"
+/>
+<link
+  href="/apple-touch-icon-72x72.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="72x72"
+/>
+<link
+  href="/apple-touch-icon-144x144.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+/>
+<link
+  href="/apple-touch-icon-120x120.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="120x120"
+/>
+<link
+  href="/apple-touch-icon-152x152.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="152x152"
+/>
 <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
 <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans&display=swap"
+  rel="stylesheet"
+/>

@@ -1,9 +1,10 @@
----
-title: Being slow to criticise
-hype: A sentiment I tend to agree with
-date: 2020-05-11
-template: "post.html"
----
++++
+title = "Being slow to criticise"
+date = "2020-05-11"
+template = "post.html"
+[extra]
+hype = "A sentiment I tend to agree with"
++++
 
 There are a lot of imperfect solutions out there. They probably wouldn't exist if we had infinite time and resources ...inevitably, a compromise gets made.
 

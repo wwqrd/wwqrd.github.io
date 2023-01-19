@@ -1,8 +1,8 @@
----
-title: A beautiful house in tokyo
-date: 2020-03-04
-template: "post.html"
----
++++
+title = "A beautiful house in tokyo"
+date = "2020-03-04"
+template = "post.html"
++++
 
 With a space this size I think you have to keep it connected to the outside.
 

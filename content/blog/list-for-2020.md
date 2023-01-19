@@ -1,9 +1,10 @@
----
-title: List for 2020
-hype: Stuff I want to do this year
-date: 2020-01-02
-template: "post.html"
----
++++
+title = "List for 2020"
+date = "2020-01-02"
+template = "post.html"
+[extra]
+hype = "Stuff I want to do this year"
++++
 
 Here's a list of stuff to get started.
 
