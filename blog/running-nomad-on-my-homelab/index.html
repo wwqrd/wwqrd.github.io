@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" class="default post">
+<head>
+  
+<title>Running Nomad On My Home Lab</title>
+ 
+<meta name="description" content="A personal web page on the internet." />
+
+<meta charset="utf-8" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width" name="viewport" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<link rel="stylesheet" href="/main.css" />
+<link
+  href="/apple-touch-icon-57x57.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="57x57"
+/>
+<link
+  href="/apple-touch-icon-114x114.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="114x114"
+/>
+<link
+  href="/apple-touch-icon-72x72.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="72x72"
+/>
+<link
+  href="/apple-touch-icon-144x144.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+/>
+<link
+  href="/apple-touch-icon-120x120.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="120x120"
+/>
+<link
+  href="/apple-touch-icon-152x152.png"
+  rel="apple-touch-icon-precomposed"
+  sizes="152x152"
+/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono:ital,wght@0,500;1,500&display=swap"
+  rel="stylesheet"
+/>
+
+</head>
+
+<body>
+  
+
+<div class="navigation">
+  <input type="checkbox" id="navigation-controller" />
+
+  <div class="navigation-container">
+    <label for="navigation-controller" class="navigation-home">⌘</label>
+
+    <div class="navigation-menu">
+      
+      <a class="navigation-menu__link" href="&#x2F;"
+        >📖 <span>blog</span></a
+      >
+      
+      <a class="navigation-menu__link" href="&#x2F;sketchbook"
+        >🌱 <span>sketchbook</span></a
+      >
+      
+      <a class="navigation-menu__link" href="&#x2F;other"
+        >🔮 <span>other</span></a
+      >
+      
+    </div>
+  </div>
+
+  <div class="navigation-menu-mobile">
+    
+    <a class="navigation-menu-mobile__link" href="&#x2F;"
+      >📖 <span>blog</span></a
+    >
+    
+    <a class="navigation-menu-mobile__link" href="&#x2F;sketchbook"
+      >🌱 <span>sketchbook</span></a
+    >
+    
+    <a class="navigation-menu-mobile__link" href="&#x2F;other"
+      >🔮 <span>other</span></a
+    >
+    
+
+    <label
+      for="navigation-controller"
+      class="navigation-menu-mobile__link navigation-menu-mobile__close"
+      >close menu</label
+    >
+  </div>
+</div>
+
+
+<div class="layout">
+
+  <div class="post__heading">
+    <h1 class="post__title">Running Nomad On My Home Lab</h1>
+    
+</div>
+
+
+  <div class="post__content content">
+    <p>I've had Nomad running on my homelab for over a month now, and I’m still really excited about it 🎉. It’s been fun and surprisingly simple! This post is about the transition from a patchwork of small utilities to an orchestrated home lab setup, and why it was Nomad that stuck.</p>
+<h2 id="background">Background</h2>
+<p>I’ve been running essential utilities on Raspberry Pis for a while: Pi-hole for DNS filtering, an AirPlay speaker 🎶, and environment sensors logging to Adafruit’s MQTT broker. It was all very ad-hoc.</p>
+<p>I wanted to add more services but manage them in a more organized way. While I’d used tools like Puppet for machine setups before, this time I wanted a containerized approach to lower the chances of breaking services. Since we use Kubernetes at work, I thought it’d be fun to try it at home — I had more to learn than I expected! 😅</p>
+<h3 id="the-vision">The Vision</h3>
+<blockquote>
+<p>Run a small Kubernetes cluster on Raspberry Pis, supported by second-hand mini-PCs to handle more resource-heavy applications.</p>
+</blockquote>
+<p>It sounded fun at the time, but I quickly found myself buried in complexity.</p>
+<h2 id="jumping-in">Jumping In</h2>
+<p>I started with some lightweight Kubernetes distributions: microk8s and k3s. Both were great, and setup was easy enough. I found k3s snappier on my low-end hardware. But as I started to try and setup my applications I kept hitting road blocks.</p>
+<p>I could’ve used Helm charts to get started, but I wanted to understand the setup. I tried creating my own configs using public Helm charts as a reference, but I kept breaking things without knowing why. Debugging a system you don’t fully understand is tough. Progress slowed to a crawl, and the project languished for months. Kubernetes just didn’t fit with the limited time I could dedicate to the project (a couple of hours a week at most) ⏳.</p>
+<h2 id="new-energy">New Energy</h2>
+<p>Despite the frustrations, I was commited the idea of a neatly orchestrated home lab. I decided to focus on learning the fundamentals. It's easy to think you have a good handle on things, when you've been using them forever. Like networking, I've set up plenty of home networks before ...but do I really know what a Docker bridge is? I dove into some amazing YouTube videos (thank you <a href="https://www.youtube.com/@NetworkChuck">NetworkChuck</a>), and things started to click. I could feel my understanding growing.</p>
+<p>I stumbled across mentions of Nomad in some <code>/r/homelab</code> discussions. Since Kubernetes hadn’t gotten me very far, I figured why not give Nomad a try? Feeling inspired and more confident in my understanding, in just a couple of hours:</p>
+<ol>
+<li>I got Nomad running as a service -- 💪</li>
+<li>Discovered the web interface for easy monitoring -- 👌</li>
+<li>Created a Pi-hole job… and it worked on the first try! -- 🙌</li>
+</ol>
+<p>Nomad seemed simple by comparison — but not in a bad way. I felt I could actually understand what I was doing.</p>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#65737e;">// Example config, running server and client on the same machine as
+</span><span style="color:#65737e;">// a single node cluster. Not suitable for production but great for me!
+</span><span>
+</span><span style="color:#bf616a;">data_dir  </span><span>= &quot;</span><span style="color:#a3be8c;">/opt/nomad/data</span><span>&quot;
+</span><span style="color:#bf616a;">bind_addr </span><span>= &quot;</span><span style="color:#a3be8c;">0.0.0.0</span><span>&quot;
+</span><span style="color:#bf616a;">datacenter </span><span>= &quot;</span><span style="color:#a3be8c;">section9</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">server </span><span>{
+</span><span>  </span><span style="color:#bf616a;">enabled          </span><span>= </span><span style="color:#d08770;">true
+</span><span>  </span><span style="color:#bf616a;">bootstrap_expect </span><span>= </span><span style="color:#d08770;">1 </span><span style="color:#65737e;">// 1 node &quot;cluster&quot; xD
+</span><span>}
+</span><span>
+</span><span style="color:#bf616a;">client </span><span>{
+</span><span>  </span><span style="color:#bf616a;">enabled </span><span>= </span><span style="color:#d08770;">true
+</span><span>
+</span><span>  </span><span style="color:#bf616a;">servers </span><span>= [&quot;</span><span style="color:#a3be8c;">127.0.0.1</span><span>&quot;]
+</span><span>
+</span><span>  </span><span style="color:#bf616a;">options </span><span>= {
+</span><span>    &quot;</span><span style="color:#a3be8c;">docker.volumes.enabled</span><span>&quot; = &quot;</span><span style="color:#a3be8c;">true</span><span>&quot;
+</span><span>    &quot;</span><span style="color:#a3be8c;">docker.privileged.enabled</span><span>&quot; = &quot;</span><span style="color:#a3be8c;">true</span><span>&quot;
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<h2 id="why-nomad-is-nice">Why Nomad is Nice</h2>
+<h3 id="baby-steps">Baby Steps</h3>
+<p>The best part about Nomad? It's <em>not</em> Kubernetes. Because Nomad does less (do one thing well) I was able to learn at my own pace without feeling overwhelmed. With the web control panel, I get immediate feedback on what I'm doing. On my single-node setup, it’s just an orchestrator (and a one node scheduler in my case 😆). And that’s really all I need for my homelab.</p>
+<h3 id="grows-with-you">Grows with You</h3>
+<p>Once I had a few applications up and running, I wanted easier access to them. I was binding different ports statically to the host and using bookmarks to remember them. That’s when I added Consul and Traefik.</p>
+<p>These new tools expanded my setup naturally. There were bumps along the way. I didn’t fully understand how Traefik tags worked at first, and I still had to manually add entries to the client <code>/etc/hosts</code> file for domain name resolution. But this time, I only had a few new concepts to tackle. I was able to slowly build things out, one piece at a time, and really get to grips with what I was doing without feeling lost.</p>
+<h3 id="enter-6-billion-daemons">Enter 6 Billion Daemons</h3>
+<p>Fast forward, and I’ve got 11 different apps running, running accross 1-3 containers each.</p>
+<p>The whole thing really came together when I set up a wildcard <code>*.home.arpa</code> DNS entry using Pi-hole and dnsmasq. That means I can just specify a new subdomain for a service in the traefik tags on the Nomad job spec, and boom — it works instantly on the with no extra config.</p>
+<p>For example, I recently add the Memos app to start drafting this blog post. It took about 15 mins and here's the job spec:</p>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#bf616a;">job </span><span>&quot;</span><span style="color:#a3be8c;">memos</span><span>&quot; {
+</span><span>  </span><span style="color:#b48ead;">type </span><span>= &quot;</span><span style="color:#a3be8c;">service</span><span>&quot;
+</span><span>
+</span><span>  </span><span style="color:#bf616a;">group </span><span>&quot;</span><span style="color:#a3be8c;">memos</span><span>&quot; {
+</span><span>    </span><span style="color:#bf616a;">count </span><span>= </span><span style="color:#d08770;">1
+</span><span>
+</span><span>    </span><span style="color:#bf616a;">service </span><span>{
+</span><span>      </span><span style="color:#bf616a;">name </span><span>= &quot;</span><span style="color:#a3be8c;">memos-web</span><span>&quot;
+</span><span>      </span><span style="color:#bf616a;">port </span><span>= &quot;</span><span style="color:#a3be8c;">memos-web</span><span>&quot;
+</span><span>
+</span><span>      </span><span style="color:#bf616a;">tags </span><span>= [
+</span><span>        &quot;</span><span style="color:#a3be8c;">traefik.enable=true</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">traefik.http.routers.memos.rule=Host(`memos.home.arpa`)</span><span>&quot;,
+</span><span>      ]
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#bf616a;">network </span><span>{
+</span><span>      </span><span style="color:#bf616a;">port </span><span>&quot;</span><span style="color:#a3be8c;">memos-web</span><span>&quot; {
+</span><span>        </span><span style="color:#bf616a;">to </span><span>= </span><span style="color:#d08770;">5230
+</span><span>      }
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#bf616a;">task </span><span>&quot;</span><span style="color:#a3be8c;">memos</span><span>&quot; {
+</span><span>      </span><span style="color:#bf616a;">driver </span><span>= &quot;</span><span style="color:#a3be8c;">docker</span><span>&quot;
+</span><span>
+</span><span>      </span><span style="color:#bf616a;">config </span><span>{
+</span><span>        </span><span style="color:#bf616a;">image </span><span>= &quot;</span><span style="color:#a3be8c;">neosmemo/memos:stable</span><span>&quot;
+</span><span>        </span><span style="color:#bf616a;">ports </span><span>= [&quot;</span><span style="color:#a3be8c;">memos-web</span><span>&quot;]
+</span><span>        </span><span style="color:#bf616a;">volumes </span><span>= [&quot;</span><span style="color:#a3be8c;">/srv/section9/memos:/var/opt/memos</span><span>&quot;]
+</span><span>      }
+</span><span>    }
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<h2 id="it-wasn-t-all-plain-sailing">It Wasn’t All Plain Sailing</h2>
+<p>I broke my Consul and Nomad setups a couple of times 🤦‍♂️, I didn’t understand which parts should bind to which networks for example. Through trial and error 🔧, I learned more about how they integrate together, and what they do, and why.</p>
+<p>My configurations aren't perfect. I'm binding to the host for file storage, instead of using CSI volumes. I have a couple of passwords hardcoded into my specs 🔒. My server is essentially a personal device on a private network, so I’m okay with it for now. Just remind me not to publish those files 😉</p>
+<h2 id="what-s-next">What’s Next?</h2>
+<ul>
+<li>Use Vault for secret management, and ditch the passwords 🔑</li>
+<li>My next project is to set up a local Certificate Authority (CA) so I can get my apps running https 🔐.</li>
+<li>Add another machine so it's actually a cluster 😄</li>
+</ul>
+<p>Interestingly, I’m now in a much better position to work with Kubernetes, but I don't feel the need to anymore. Nomad works beautifully for my requirements 💯.</p>
+
+  </div>
+
+  <div class="post__end"></div>
+
+</div>
+
+  
+</body>
+</html>
