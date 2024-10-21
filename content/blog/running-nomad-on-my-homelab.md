@@ -122,7 +122,7 @@ job "memos" {
 
 I broke my Consul and Nomad setups a couple of times 🤦‍♂️, I didn’t understand which parts should bind to which networks for example. Through trial and error 🔧, I learned more about how they integrate together, and what they do, and why.
 
-My configurations are perfect. I'm binding to the host for file storage, instead of using CSI volumes. I have a couple of passwords hardcoded into my specs 🔒. My server is essentially a personal device on a private network, so I’m okay with it for now. Just remind me not to publish those files 😉
+My configurations aren't perfect. I'm binding to the host for file storage, instead of using CSI volumes. I have a couple of passwords hardcoded into my specs 🔒. My server is essentially a personal device on a private network, so I’m okay with it for now. Just remind me not to publish those files 😉
 
 ## What’s Next?
 
