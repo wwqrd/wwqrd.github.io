@@ -2,6 +2,15 @@
   position: relative
   max-width: 100%
   margin: 24px 0 0
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  img.centered
+    width: 100%
+    @media screen and (min-width: 640px)
+      width: 50%
 
   &__ratio
     height: 0

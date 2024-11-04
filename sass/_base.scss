@@ -76,6 +76,16 @@ blockquote {
   }
 }
 
+code {
+  font-family: $code-font;
+  font-size: $small-font-size;
+  border: 1px solid white;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0 5px;
+
+}
+
 // .content,
 // .layout
 //   max-width: 720px
