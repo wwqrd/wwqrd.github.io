@@ -2,7 +2,9 @@
 title = "Building a Smart Doorbell with Zigbee, MQTT, and Raspberry Pi"
 date = "2024-11-04"
 template = "post.html"
+[extra]
 tags = ["homelab", "zigbee", "mqtt", "iot"]
+hype = "Learn how I created a smart doorbell using Zigbee, MQTT, and a Raspberry Pi. This simple DIY project adds sound alerts and notifications through Home Assistant, all powered by my homelab setup."
 +++
 
 This is a smart doorbell project that came together right after I set up a Zigbee + MQTT hub.

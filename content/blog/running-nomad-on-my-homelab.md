@@ -2,7 +2,9 @@
 title = "Running Nomad On My Home Lab"
 date = "2024-10-17"
 template = "post.html"
+[extra]
 tags = ["homelab", "nomad", "consul", "traefik", "kubernetes"]
+hype = "Setting up Nomad on my homelab: a straightforward alternative to Kubernetes for orchestrating smart home and utility services. Here’s how I configured Nomad, Consul, and Traefik for a flexible, containerized setup."
 +++
 
 I've had Nomad running on my homelab for over a month now, and I’m still really excited about it 🎉. It’s been fun and surprisingly simple! This post is about the transition from a patchwork of small utilities to an orchestrated home lab setup, and why it was Nomad that stuck.
