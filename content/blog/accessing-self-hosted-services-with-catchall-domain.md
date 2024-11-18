@@ -28,7 +28,7 @@ So this is the setup:
 
 So how to do a catchall? Turns out, Pi-hole already has **dnsmasq** built in, which can handle this easily 🤩. The simplest setup is adding an address entry like so:
 
-```hcl
+```python
 # in /etc/dnsmasq.d/09-home.conf
 address=/.home.arpa/192.168.1.20
 ```
@@ -40,7 +40,7 @@ With this in place, every subdomain under `home.arpa` resolves to the IP address
 
 👌
 
-```hcl
+```python
 tags = [
     "traefik.enable=true",
     "traefik.http.routers.pihole.rule=Host(`pihole.home.arpa`)",
@@ -51,7 +51,7 @@ tags = [
 
 This worked great for me on my LAN, but when I’m away from home, connecting via VPN it breaks because that IP is no longer valid ❌. Fortunately we can configure for this too, and include information about the subnets that each IP is relevant to:
 
-```hcl
+```python
 address=/.home.arpa/192.168.1.0/24/192.168.1.20  # LAN ip for node
 address=/.home.arpa/100.64.0.0/10/100.66.66.66  # VPN ip for node
 ```
