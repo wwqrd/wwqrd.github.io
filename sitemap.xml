@@ -7,6 +7,10 @@
         <loc>https://wwqrd.uk/blog/</loc>
     </url>
     <url>
+        <loc>https://wwqrd.uk/blog/accessing-self-hosted-services-with-catchall-domain/</loc>
+        <lastmod>2024-11-18</lastmod>
+    </url>
+    <url>
         <loc>https://wwqrd.uk/blog/running-nomad-on-my-homelab/</loc>
         <lastmod>2024-10-17</lastmod>
     </url>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" class="default post">
+<head>
+  
+<title>Simplifying self-hosted service access with a catchall domain</title>
+ 
+<meta name="description" content="Here&#x27;s how I used Traefik, Pi-hole, and home.arpa to streamline access with subdomains." />
+
+<meta charset="utf-8" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width" name="viewport" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<link rel="stylesheet" href="/main.css" />
+<link
+    href="/apple-touch-icon-57x57.png"
+    rel="apple-touch-icon-precomposed"
+    sizes="57x57"
+/>
+<link
+    href="/apple-touch-icon-114x114.png"
+    rel="apple-touch-icon-precomposed"
+    sizes="114x114"
+/>
+<link
+    href="/apple-touch-icon-72x72.png"
+    rel="apple-touch-icon-precomposed"
+    sizes="72x72"
+/>
+<link
+    href="/apple-touch-icon-144x144.png"
+    rel="apple-touch-icon-precomposed"
+    sizes="144x144"
+/>
+<link
+    href="/apple-touch-icon-120x120.png"
+    rel="apple-touch-icon-precomposed"
+    sizes="120x120"
+/>
+<link
+    href="/apple-touch-icon-152x152.png"
+    rel="apple-touch-icon-precomposed"
+    sizes="152x152"
+/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono:ital,wght@0,500;1,500&display=swap"
+    rel="stylesheet"
+/>
+
+</head>
+
+<body>
+  
+
+<div class="navigation">
+  <input type="checkbox" id="navigation-controller" />
+
+  <div class="navigation-container">
+    <label for="navigation-controller" class="navigation-home">⌘</label>
+
+    <div class="navigation-menu">
+      
+      <a class="navigation-menu__link" href="&#x2F;"
+        >📖 <span>blog</span></a
+      >
+      
+      <a class="navigation-menu__link" href="&#x2F;sketchbook"
+        >🌱 <span>sketchbook</span></a
+      >
+      
+      <a class="navigation-menu__link" href="&#x2F;other"
+        >🔮 <span>other</span></a
+      >
+      
+    </div>
+  </div>
+
+  <div class="navigation-menu-mobile">
+    
+    <a class="navigation-menu-mobile__link" href="&#x2F;"
+      >📖 <span>blog</span></a
+    >
+    
+    <a class="navigation-menu-mobile__link" href="&#x2F;sketchbook"
+      >🌱 <span>sketchbook</span></a
+    >
+    
+    <a class="navigation-menu-mobile__link" href="&#x2F;other"
+      >🔮 <span>other</span></a
+    >
+    
+
+    <label
+      for="navigation-controller"
+      class="navigation-menu-mobile__link navigation-menu-mobile__close"
+      >close menu</label
+    >
+  </div>
+</div>
+
+
+<div class="layout">
+
+  <div class="post__heading">
+    <h1 class="post__title">Simplifying self-hosted service access with a catchall domain</h1>
+    
+</div>
+
+
+  <div class="post__content content">
+    <p>I recently set up the first node for my homelab. While it was easy to spin up various services, accessing them wasn’t so straightforward —remembering ports for each service was a hassle 🤯. It really came together when I got a catchall domain working.</p>
+<h4 id="why-a-catchall-domain-globe-with-meridians">Why a Catchall Domain?  🌐</h4>
+<p>Traefik offers powerful tools for redirecting traffic and rewriting headers, but things don’t always go smoothly. Many Docker-based apps are built to assume they’re running at the root of a domain, that can cause unexpected behaviour 🛑. Rather than figure this out on an app by app basis, I could largely sidestep this problem by using sub-domains.</p>
+<p>For the domain itself, many people default to <code>.local</code> for local services, but this can cause conflicts with mDNS. Others opt for a real domain, but that comes with two drawbacks: it costs money, and your DNS records are public. Turns out that <a href="http://home.arpa">home.arpa</a> is specifically reserved by the IETF for home networking 🏡. It’s free, private and perfect for me since I don’t need to route public traffic to my homelab 🙌.</p>
+<p>So this is the setup:</p>
+<ul>
+<li>I have a single node with a known IP (<code>192.168.1.20</code>).</li>
+<li>I will route all subdomains for <a href="http://home.arpa">home.arpa</a> to my known node IP</li>
+<li>I will use a <a href="http://home.arpa">home.arpa</a> subdomain for each service, e.g. <code>pihole.home.arpa</code></li>
+<li>All traffic on port 80/443 (e.g. web traffic) hit will hit my reverse proxy (Traefik) on that device.</li>
+<li>I can set Traefik tags on my Nomad jobs to route them by <code>Host()</code></li>
+<li>This means I can configure the subdomain in my Nomad job files and it will automagically work ✨!</li>
+</ul>
+<h4 id="dns-configuration-with-pi-hole-tools">DNS Configuration with Pi-hole 🛠️</h4>
+<p>So how to do a catchall? Turns out, Pi-hole already has <strong>dnsmasq</strong> built in, which can handle this easily 🤩. The simplest setup is adding an address entry like so:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;"># in /etc/dnsmasq.d/09-home.conf
+</span><span>address=/.home.arpa/</span><span style="color:#d08770;">192.168.1.20
+</span></code></pre>
+<p>With this in place, every subdomain under <code>home.arpa</code> resolves to the IP address <code>192.168.1.20</code>. For example:</p>
+<ul>
+<li><code>pihole.home.arpa</code> → 192.168.1.20</li>
+<li><code>home-assistant.home.arpa</code> → 192.168.1.20</li>
+</ul>
+<p>👌</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>tags = [
+</span><span>    &quot;</span><span style="color:#a3be8c;">traefik.enable=true</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">traefik.http.routers.pihole.rule=Host(`pihole.home.arpa`)</span><span>&quot;,
+</span><span>]
+</span></code></pre>
+<h4 id="handling-remote-access-earth-africa">Handling Remote Access 🌍</h4>
+<p>This worked great for me on my LAN, but when I’m away from home, connecting via VPN it breaks because that IP is no longer valid ❌. Fortunately we can configure for this too, and include information about the subnets that each IP is relevant to:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>address=/.home.arpa/</span><span style="color:#d08770;">192.168.1.0</span><span>/</span><span style="color:#d08770;">24</span><span>/</span><span style="color:#d08770;">192.168.1.20  </span><span style="color:#65737e;"># LAN ip for node
+</span><span>address=/.home.arpa/</span><span style="color:#d08770;">100.64.0.0</span><span>/</span><span style="color:#d08770;">10</span><span>/</span><span style="color:#d08770;">100.66.66.66  </span><span style="color:#65737e;"># VPN ip for node
+</span></code></pre>
+<p>Now I can let networking magic ✨ route my traffic to the most appropriate IP, so long as we use the pihole as our DNS server.</p>
+<h4 id="split-dns-with-tailscale-shield">Split DNS with Tailscale 🛡️</h4>
+<p>Tailscale makes this easy with its <strong>split DNS</strong> feature. This allows you to delegate DNS resolution for a specific TLD (<code>home.arpa</code>). To set it up:</p>
+<ol>
+<li>Open the Tailscale admin panel.</li>
+<li>Go to the <strong>DNS</strong> section.</li>
+<li>Add a custom nameserver for <code>home.arpa</code>.</li>
+<li>Done!</li>
+</ol>
+<p>Now, whether I’m at home or connected via VPN, my services are easily accessible using their subdomains ☺️</p>
+<p>Setting up a catchall domain with Traefik, Pi-hole, and <code>home.arpa</code> has made managing and accessing my homelab services easy. Subdomains keep everything organized and avoid the quirks of app-specific configurations, while Pi-hole and Tailscale handle DNS seamlessly for both local and remote access. With this setup, expanding my homelab feels even more straightforward.</p>
+
+  </div>
+
+  <div class="post__end"></div>
+
+</div>
+
+  
+</body>
+</html>
