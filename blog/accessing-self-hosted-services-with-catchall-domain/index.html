@@ -114,12 +114,12 @@
     <p>I recently set up the first node for my homelab. While it was easy to spin up various services, accessing them wasn’t so straightforward —remembering ports for each service was a hassle 🤯. It really came together when I got a catchall domain working.</p>
 <h4 id="why-a-catchall-domain-globe-with-meridians">Why a Catchall Domain?  🌐</h4>
 <p>Traefik offers powerful tools for redirecting traffic and rewriting headers, but things don’t always go smoothly. Many Docker-based apps are built to assume they’re running at the root of a domain, that can cause unexpected behaviour 🛑. Rather than figure this out on an app by app basis, I could largely sidestep this problem by using sub-domains.</p>
-<p>For the domain itself, many people default to <code>.local</code> for local services, but this can cause conflicts with mDNS. Others opt for a real domain, but that comes with two drawbacks: it costs money, and your DNS records are public. Turns out that <a href="http://home.arpa">home.arpa</a> is specifically reserved by the IETF for home networking 🏡. It’s free, private and perfect for me since I don’t need to route public traffic to my homelab 🙌.</p>
+<p>For the domain itself, many people default to <code>.local</code> for local services, but this can cause conflicts with mDNS. Others opt for a real domain, but that comes with two drawbacks: it costs money, and your DNS records are public. Turns out that <code>home.arpa</code> is specifically reserved by the IETF for home networking 🏡. It’s free, private and perfect for me since I don’t need to route public traffic to my homelab 🙌.</p>
 <p>So this is the setup:</p>
 <ul>
 <li>I have a single node with a known IP (<code>192.168.1.20</code>).</li>
-<li>I will route all subdomains for <a href="http://home.arpa">home.arpa</a> to my known node IP</li>
-<li>I will use a <a href="http://home.arpa">home.arpa</a> subdomain for each service, e.g. <code>pihole.home.arpa</code></li>
+<li>I will route all subdomains for <code>home.arpa</code> to my known node IP</li>
+<li>I will use a <code>home.arpa subdomain for each service, e.g. </code>pihole.home.arpa`</li>
 <li>All traffic on port 80/443 (e.g. web traffic) hit will hit my reverse proxy (Traefik) on that device.</li>
 <li>I can set Traefik tags on my Nomad jobs to route them by <code>Host()</code></li>
 <li>This means I can configure the subdomain in my Nomad job files and it will automagically work ✨!</li>
