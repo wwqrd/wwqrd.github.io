@@ -13,13 +13,13 @@ I recently set up the first node for my homelab. While it was easy to spin up va
 
 Traefik offers powerful tools for redirecting traffic and rewriting headers, but things don’t always go smoothly. Many Docker-based apps are built to assume they’re running at the root of a domain, that can cause unexpected behaviour 🛑. Rather than figure this out on an app by app basis, I could largely sidestep this problem by using sub-domains.
 
-For the domain itself, many people default to `.local` for local services, but this can cause conflicts with mDNS. Others opt for a real domain, but that comes with two drawbacks: it costs money, and your DNS records are public. Turns out that [home.arpa](http://home.arpa) is specifically reserved by the IETF for home networking 🏡. It’s free, private and perfect for me since I don’t need to route public traffic to my homelab 🙌.
+For the domain itself, many people default to `.local` for local services, but this can cause conflicts with mDNS. Others opt for a real domain, but that comes with two drawbacks: it costs money, and your DNS records are public. Turns out that `home.arpa` is specifically reserved by the IETF for home networking 🏡. It’s free, private and perfect for me since I don’t need to route public traffic to my homelab 🙌.
 
 So this is the setup:
 
 - I have a single node with a known IP (`192.168.1.20`).
-- I will route all subdomains for [home.arpa](http://home.arpa) to my known node IP
-- I will use a [home.arpa](http://home.arpa) subdomain for each service, e.g. `pihole.home.arpa`
+- I will route all subdomains for `home.arpa` to my known node IP
+- I will use a `home.arpa subdomain for each service, e.g. `pihole.home.arpa`
 - All traffic on port 80/443 (e.g. web traffic) hit will hit my reverse proxy (Traefik) on that device.
 - I can set Traefik tags on my Nomad jobs to route them by `Host()`
 - This means I can configure the subdomain in my Nomad job files and it will automagically work ✨!
