@@ -119,7 +119,7 @@
 <ul>
 <li>I have a single node with a known IP (<code>192.168.1.20</code>).</li>
 <li>I will route all subdomains for <code>home.arpa</code> to my known node IP</li>
-<li>I will use a <code>home.arpa subdomain for each service, e.g. </code>pihole.home.arpa`</li>
+<li>I will use a <code>home.arpa</code> subdomain for each service, e.g. <code>pihole.home.arpa</code></li>
 <li>All traffic on port 80/443 (e.g. web traffic) hit will hit my reverse proxy (Traefik) on that device.</li>
 <li>I can set Traefik tags on my Nomad jobs to route them by <code>Host()</code></li>
 <li>This means I can configure the subdomain in my Nomad job files and it will automagically work ✨!</li>
