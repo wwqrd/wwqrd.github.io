@@ -1,0 +1,25 @@
+#progress {
+    background-color: $color-orange;
+    width: 100%;
+    height: 5px;
+    left: 0;
+    position: fixed;
+    top: 0;
+
+    transform: scaleX(0);
+    animation-name: progressAnimation;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-direction: normal;
+    animation-timeline: scroll(root y);
+    transform-origin: 0 0;
+    z-index: 100;
+}
+
+@keyframes progressAnimation {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
