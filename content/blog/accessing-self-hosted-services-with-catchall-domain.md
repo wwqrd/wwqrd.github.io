@@ -56,11 +56,12 @@ address=/.home.arpa/192.168.1.0/24/192.168.1.20  # LAN ip for node
 address=/.home.arpa/100.64.0.0/10/100.66.66.66  # VPN ip for node
 ```
 
-Now I can let networking magic ✨ route my traffic to the most appropriate IP, so long as we use the pihole as our DNS server.
+Now I can let networking magic ✨ route my traffic to the most appropriate IP, so long as we use the pihole as our DNS server, but
+I don't want to use that for the rest of my traffic when I'm on the VPN, because it'll add a slow round trip to all my DNS queries.
 
 #### Split DNS with Tailscale 🛡️
 
-Tailscale makes this easy with its **split DNS** feature. This allows you to delegate DNS resolution for a specific TLD (`home.arpa`). To set it up:
+Tailscale makes this easy to fix with its **split DNS** feature. This allows you to delegate DNS resolution for a specific TLD (`home.arpa`), everything else can go to your regular server. To set it up:
 
 1. Open the Tailscale admin panel.
 2. Go to the **DNS** section.
