@@ -145,9 +145,10 @@
 <pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>address=/.home.arpa/</span><span style="color:#d08770;">192.168.1.0</span><span>/</span><span style="color:#d08770;">24</span><span>/</span><span style="color:#d08770;">192.168.1.20  </span><span style="color:#65737e;"># LAN ip for node
 </span><span>address=/.home.arpa/</span><span style="color:#d08770;">100.64.0.0</span><span>/</span><span style="color:#d08770;">10</span><span>/</span><span style="color:#d08770;">100.66.66.66  </span><span style="color:#65737e;"># VPN ip for node
 </span></code></pre>
-<p>Now I can let networking magic ✨ route my traffic to the most appropriate IP, so long as we use the pihole as our DNS server.</p>
+<p>Now I can let networking magic ✨ route my traffic to the most appropriate IP, so long as we use the pihole as our DNS server, but
+I don't want to use that for the rest of my traffic when I'm on the VPN, because it'll add a slow round trip to all my DNS queries.</p>
 <h4 id="split-dns-with-tailscale-shield">Split DNS with Tailscale 🛡️</h4>
-<p>Tailscale makes this easy with its <strong>split DNS</strong> feature. This allows you to delegate DNS resolution for a specific TLD (<code>home.arpa</code>). To set it up:</p>
+<p>Tailscale makes this easy to fix with its <strong>split DNS</strong> feature. This allows you to delegate DNS resolution for a specific TLD (<code>home.arpa</code>), everything else can go to your regular server. To set it up:</p>
 <ol>
 <li>Open the Tailscale admin panel.</li>
 <li>Go to the <strong>DNS</strong> section.</li>
