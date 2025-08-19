@@ -47,18 +47,6 @@ tags = [
 ]
 ```
 
-#### Handling Remote Access 🌍
-
-This worked great for me on my LAN, but when I’m away from home, connecting via VPN it breaks because that IP is no longer valid ❌. Fortunately we can configure for this too, and include information about the subnets that each IP is relevant to:
-
-```python
-address=/.home.arpa/192.168.1.0/24/192.168.1.20  # LAN ip for node
-address=/.home.arpa/100.64.0.0/10/100.66.66.66  # VPN ip for node
-```
-
-Now I can let networking magic ✨ route my traffic to the most appropriate IP, so long as we use the pihole as our DNS server, but
-I don't want to use that for the rest of my traffic when I'm on the VPN, because it'll add a slow round trip to all my DNS queries.
-
 #### Split DNS with Tailscale 🛡️
 
 Tailscale makes this easy to fix with its **split DNS** feature. This allows you to delegate DNS resolution for a specific TLD (`home.arpa`), everything else can go to your regular server. To set it up:
