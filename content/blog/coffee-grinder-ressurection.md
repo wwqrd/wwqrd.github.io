@@ -14,7 +14,7 @@ description = "Fixing a broken coffee grinder"
 
 I used to grind my coffee with a hand mill. 5 minutes of mindfulness, or so I'd tell myself. It's a process, I said. Then one day I got a coffee grinder. 15 seconds of brain holiday ✌️ Never looked back.
 
-Like many kitchen utilities, it's basically a spinning magnet with one moving part. I didn't expect this to fail. When mine started stalling and stopping, I was confused. A quick search came up with other people who had had the same fault, and it turned out to be a power capacitor. I might actually be able to repair this thing!
+Like many kitchen utilities, it's basically a spinning magnet with one moving part. I didn't expect this to fail. When mine started stalling and stopping, I was confused. A quick search came up with a (video from someone who had the same fault)[https://www.youtube.com/watch?v=tjuEOLMQluc], a broken power capacitor. I might actually be able to repair this thing!
 
 #### First Attempt, or "Too Easy":
 
@@ -33,3 +33,5 @@ Take aways:
 - **Go slow to go fast.** Rushing cost me time, wrong part, torn circuit, be patient.
 - **Keep moving when things go wrong.** Sometimes it felt like I was moving backwards but it's worth sticking with it
 - **Repairing stuff is immensely satisfying.** Saving it from landfill made the effort worthwhile.
+
+Source for repair video: https://www.youtube.com/watch?v=tjuEOLMQluc
